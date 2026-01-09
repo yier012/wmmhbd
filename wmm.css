@@ -1,47 +1,81 @@
+/* 全域設定 */
 body {
-    background-color: #f0f2f5;
-    font-family: "Microsoft JhengHei", sans-serif;
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); /* 專業測驗感的藍色漸層 */
+    font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background 1.5s ease; /* 變色時會很柔和 */
 }
 
+/* 容器：毛玻璃質感 */
 .container {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* 模糊背景 */
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-    width: 90%;
+    width: 85%;
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+h1 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* 按鈕美化 */
 .quiz-btn {
     display: block;
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 15px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 12px;
     background: white;
+    color: #444;
+    font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
 }
 
 .quiz-btn:hover {
-    background-color: #e7f3ff;
-    border-color: #007bff;
+    transform: translateY(-3px); /* 往上浮一點 */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    background-color: #f8f9fa;
+    color: #007bff;
 }
 
+.quiz-btn:active {
+    transform: translateY(0);
+}
+
+/* 驚喜文字動畫 */
 .hb-text {
-    font-size: 3rem;
-    color: #ff4d4d;
-    animation: bounce 1s infinite;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px 0;
+    font-weight: bold;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+/* 分隔線 */
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
 }
