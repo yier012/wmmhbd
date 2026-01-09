@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>性格潛在特質分析</title>
-    <link rel="stylesheet" href="wmm.css">
-</head>
-<body>
+<div class="container">
+    <h1 id="title">🧠 核心性格測驗</h1>
+    <p id="description">測驗進度：<span id="progress">分析中...</span></p>
 
-    <div class="container">
-        <h1 id="title">🧠 核心性格測驗</h1>
-        <p id="description">這是一項結合大數據與色彩心理學的測試，請誠實回答以獲得最準確的分析結果。</p>
+    <hr>
 
-        <hr>
-
-        <div id="quiz-area">
-            <p><strong>Q1: 當你走在森林裡，你第一眼會注意到什麼？</strong></p>
-            <button class="quiz-btn">古老的大樹</button>
-            <button class="quiz-btn">清澈的小溪</button>
-            <button class="quiz-btn">發光的蘑菇</button>
-        </div>
-
-        <div id="surprise-area" style="display:none;">
-            <h2 style="color: #ff4d4d;">🎉 測驗結果：你是全世界最棒的朋友！</h2>
-            <p>沒什麼好測的，其實我只是想跟你說：</p>
-            <h1 class="hb-text">生日快樂！！</h1>
-        </div>
+    <div id="quiz-area">
+        <p id="question-text"><strong>1. 假如你在荒島，只能帶一個東西，你會帶？</strong></p>
+        <button class="quiz-btn" onclick="nextQuestion()">手機</button>
+        <button class="quiz-btn" onclick="nextQuestion()">打火機</button>
+        <button class="quiz-btn" onclick="nextQuestion()">朋友的照片</button>
     </div>
 
-</body>
-</html>
+    <div id="surprise-area" style="display:none;">
+        <h2 style="color: #ff4d4d;">🎉 測驗結果：</h2>
+        <p>根據數據顯示，你是一個極其溫暖的人。</p>
+        <h1 class="hb-text">生日快樂！！</h1>
+        <p>🎂🎂🎂</p>
+    </div>
+</div>
+
+<script src="wmm.js"></script>
