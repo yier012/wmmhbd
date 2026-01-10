@@ -3,34 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>性格潛在特質分析</title>
+    <title>2026 核心人格潛在特質分析</title>
     <link rel="stylesheet" href="wmm.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <div class="container">
-    <h1 id="title">🧠 核心性格測驗</h1>
-    <p id="description">測驗進度：<span id="progress">分析中...</span></p>
+        <div id="start-screen">
+            <h1>🧠 核心性格深度分析</h1>
+            <p>本測驗共有 20 題，將透過直覺反應分析你的潛在特質。請找個安靜的地方開始。</p>
+            <button class="start-btn" onclick="startQuiz()">開始測驗</button>
+        </div>
 
-    <hr>
+        <div id="quiz-content" style="display:none;">
+            <div class="progress-bar"><div id="progress-fill"></div></div>
+            <p id="progress-text">問題 1 / 20</p>
+            <hr>
+            <p id="question-text"><strong>載入中...</strong></p>
+            <div id="answer-btns">
+                </div>
+        </div>
 
-    <div id="quiz-area">
-        <p id="question-text"><strong>1. 假如你在荒島，只能帶一個東西，你會帶？</strong></p>
-        <button class="quiz-btn" onclick="nextQuestion()">手機</button>
-        <button class="quiz-btn" onclick="nextQuestion()">打火機</button>
-        <button class="quiz-btn" onclick="nextQuestion()">朋友的照片</button>
+        <div id="surprise-area" style="display:none;">
+            <h2 style="color: #ff4d4d;">🎉 分析完成！</h2>
+            <p>經過大數據精準計算，你的特質是：</p>
+            <h1 class="hb-text">全世界最棒的朋友</h1>
+            <p>而且根據日期顯示...</p>
+            <h1 class="hb-text">生日快樂！！🎂</h1>
+        </div>
     </div>
 
-    <div id="surprise-area" style="display:none;">
-        <h2 style="color: #ff4d4d;">🎉 測驗結果：</h2>
-        <p>根據數據顯示，你是一個極其溫暖的人。</p>
-        <h1 class="hb-text">生日快樂！！</h1>
-        <p>🎂🎂🎂</p>
-    </div>
-</div>
-
-<script src="wmm.js"></script>
-
+    <script src="wmm.js"></script>
 </body>
 </html>

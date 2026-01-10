@@ -1,35 +1,62 @@
-// 這裡定義你的題目
 const quizData = [
-    { q: "1. 假如你在荒島，只能帶一個東西，你會帶？", a: ["手機", "打火機", "朋友的照片"] },
-    { q: "2. 週末你最喜歡的活動是？", a: ["窩在家", "出去瘋", "不知道幹嘛"] },
-    { q: "3. 看到一隻受傷的小貓，你的反應是？", a: ["心碎了", "帶去看醫生", "幫牠找媽媽"] },
-    { q: "4. 你覺得自己最像哪種動物？", a: ["懶散的貓", "熱情的狗", "獨行的狼"] },
-    { q: "5. 最後一題：你覺得今天是什麼日子？", a: ["普通的週五", "不知道", "重要的人生日"] }
+    { q: "1. 測驗開始：你通常如何開啟新的一天？", a: ["充滿活力", "想賴床", "先喝咖啡"] },
+    { q: "2. 這裡填入你的第二題題目...", a: ["選項A", "選項B", "選項C"] },
+    { q: "3. 這裡填入你的第三題題目...", a: ["選項A", "選項B", "選項C"] },
+    // ... 你可以複製上面的結構，一路補到 20 題 ...
+    { q: "20. 最後一題：你覺得送你這個測驗的人帥/美嗎？", a: ["帥爆", "美翻", "非常有誠意"] }
 ];
 
 let currentStep = 0;
 
+function startQuiz() {
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('quiz-content').style.display = 'block';
+    showQuestion();
+}
+
+function showQuestion() {
+    const q = quizData[currentStep];
+    document.getElementById('question-text').innerText = q.q;
+    document.getElementById('progress-text').innerText = `問題 ${currentStep + 1} / ${quizData.length}`;
+    document.getElementById('progress-fill').style.width = `${((currentStep + 1) / quizData.length) * 100}%`;
+
+    const btnArea = document.getElementById('answer-btns');
+    btnArea.innerHTML = ''; // 清空舊按鈕
+
+    q.a.forEach(text => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-btn';
+        btn.innerText = text;
+        btn.onclick = () => nextQuestion();
+        btnArea.appendChild(btn);
+    });
+}
+
 function nextQuestion() {
     currentStep++;
-    
     if (currentStep < quizData.length) {
-        // 更新題目文字
-        document.getElementById('question-text').innerText = quizData[currentStep].q;
-        // 更新按鈕文字（假設有三個按鈕）
-        const btns = document.querySelectorAll('.quiz-btn');
-        quizData[currentStep].a.forEach((text, index) => {
-            btns[index].innerText = text;
-        });
+        showQuestion();
     } else {
-        // 測驗結束，隱藏測驗區，顯示驚喜區
-        document.getElementById('quiz-area').style.display = 'none';
-        document.getElementById('title').innerText = "分析結果計算中...";
-        
-        setTimeout(() => {
-            document.getElementById('title').style.display = 'none';
-            document.getElementById('description').style.display = 'none';
-            document.getElementById('surprise-area').style.display = 'block';
-            document.body.style.backgroundColor = '#ffeef0'; // 換個背景色
-        }, 1500);
+        showResult();
     }
+}
+
+function showResult() {
+    document.getElementById('quiz-content').style.display = 'none';
+    const title = document.getElementById('start-screen'); // 借用這個區域顯示載入中
+    title.style.display = 'block';
+    title.innerHTML = "<h1>計算結果中...</h1>";
+    
+    setTimeout(() => {
+        title.style.display = 'none';
+        document.getElementById('surprise-area').style.display = 'block';
+        document.body.style.background = 'linear-gradient(135deg, #feb47b 0%, #ff7e5f 100%)'; // 換成溫馨漸層
+        
+        // 噴發彩帶！
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }, 2000);
 }
