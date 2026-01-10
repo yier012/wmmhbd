@@ -141,3 +141,127 @@ p {
     line-height: 1.5;
     margin: 20px 0;
 }
+
+/* 被選中的按鈕樣式 */
+.quiz-btn.selected {
+    background-color: #e7f3ff;
+    border-color: #007bff;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* 為了讓打勾看起來更像，可以在選中時加個小圖標（選配） */
+.quiz-btn.selected::after {
+    content: ' ✓';
+    float: right;
+}
+
+/* 字首提取動畫樣式 */
+#extraction-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.initial-char {
+    display: inline-block;
+    animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+#loading-text {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* 掃描視窗的動畫 */
+#scan-window {
+    border: 2px solid #4facfe;
+    box-shadow: inset 0 0 10px rgba(79, 172, 254, 0.2);
+    position: relative;
+}
+
+/* 掃描線效果 (選配) */
+#scan-window::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: rgba(79, 172, 254, 0.5);
+    animation: scanMove 1s linear infinite;
+}
+
+@keyframes scanMove {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+.initial-char {
+    display: inline-block;
+    padding: 6px 10px;
+    background: #fff;
+    border: 1px solid #a1c4fd;
+    border-radius: 8px;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    animation: dropIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes dropIn {
+    0% { opacity: 0; transform: translateY(-20px) scale(1.5); filter: blur(5px); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* 讓掉落後的字更有存在感 */
+.initial-char {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #fff;
+    border: 2px solid #c44d4d; /* 改成紅色邊框 */
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.2);
+    animation: dropIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+#scan-window {
+    transition: all 0.3s ease;
+    min-height: 100px; /* 確保題目換行時高度不會跳動 */
+}
+
+#status-tag {
+    animation: pulse-red 1s infinite;
+    display: inline-block;
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+}
+
+/* 讓掉落後的字稍微抖動一下，提醒朋友去讀它 */
+.initial-char {
+    /* ... 保留之前的樣式 ... */
+    animation: dropIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, 
+               gentle-shake 2s infinite 1s;
+}
+
+@keyframes gentle-shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+}
