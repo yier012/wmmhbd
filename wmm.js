@@ -151,12 +151,12 @@ function finalSurprise() {
     // 這裡是原本驚喜區域的內容
     container.innerHTML = `
         <div id="surprise-area">
-            <h2 style="color: #ff4d4d;">🎉 測驗結束！</h2>
+            <h2 style="color: #ff4d4d;">🎉 調查結束！秀不秀！</h2>
             <p>你爸爸我覺得你是...</p>
             <h1 class="hb-text">全世界最棒的朋友</h1>
-            <p style="font-size: 0.9rem; padding: 0 10px;">祝迪新的一年一切順利，朝著自己的目標前進，去到迪想去的地方，你是最秀的我們愛你，但是...你沒屌！</p>
-            <h1 class="hb-text" style="font-size: 2rem;">王孟孟生日快樂！！🎂</h1>
-            <p style="color: #888;">(敢不敢回去看題目藏頭嗚嗚嗚)</p>
+            <p>祝迪新的一年一切順利，朝著自己的目標前進，去到迪想去的地方，你是最秀的我們愛你，但是...你沒屌！</p>
+            <h1 class="hb-text">王孟孟生日快樂！！🎂</h1>
+            <img src="wmm.jpg" alt="生日照片" style="width: 100%; border-radius: 15px;">
         </div>
     `;
     
