@@ -59,3 +59,85 @@ p {
     font-size: 0.75rem;
     color: #999;
 }
+
+/* --- 重新設計的按鈕樣式 --- */
+
+/* 選項按鈕：專業問卷質感 */
+.quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    margin: 14px 0;
+    
+    /* 核心設計：白底、細邊框、大圓角 */
+    background: #ffffff;
+    color: #445566;
+    border: 1.5px solid #eef2f6;
+    border-radius: 16px;
+    
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: left; /* 讓文字靠左，更像正式測驗 */
+    padding-left: 25px;
+    
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* 滑鼠移上去：邊框變色、微幅浮起 */
+.quiz-btn:hover {
+    transform: translateY(-2px);
+    background-color: #ffffff;
+    border-color: #a1c4fd; /* 淡淡的藍色 */
+    color: #007bff;
+    box-shadow: 0 8px 20px rgba(161, 196, 253, 0.2);
+}
+
+/* 點擊瞬間：縮小反饋 */
+.quiz-btn:active {
+    transform: scale(0.98);
+}
+
+/* 開始按鈕：更有質感的漸層 */
+.start-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 16px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 25px;
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(118, 75, 162, 0.3);
+}
+
+/* 更新容器樣式：增加呼吸感 */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    padding: 50px 35px; /* 增加內距 */
+    border-radius: 32px; /* 更圓潤 */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    max-width: 420px;
+    width: 88%;
+}
+
+/* 題目文字增強 */
+#question-text {
+    font-size: 1.15rem;
+    color: #2c3e50;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 20px 0;
+}
